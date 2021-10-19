@@ -23,15 +23,10 @@ public static $quotes = array("The Black Knight Always Triumphs! - Monty Python"
 );
 
 public function index()
-
 {
-
-$totalQuotes = (count(Controller::$quotes));
-
-$randomNumber = (rand(0,($totalQuotes-1)));
-
-$randomQuote = Controller::$quotes[$randomNumber];
-
-return response()->json(['quote' => $randomQuote]); }
-
+    $totalQuotes = (count(Controller::$quotes));
+    $randomNumber = (rand(0,($totalQuotes-1)));
+    $randomQuote = Controller::$quotes[$randomNumber];
+    return response()->json(['quote' => $randomQuote, 'server_ip' => gethostbyname(gethostname())]);
+}
 }
